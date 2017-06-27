@@ -7,7 +7,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 echo "Updating OSX.  If this requires a restart, run the script again."
-sudo softwareupdate -iva
+sudo softwareupdate -i -a
 
 echo "Installing Xcode Command Line Tools."
 xcode-select --install

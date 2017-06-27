@@ -23,24 +23,10 @@ echo ""
 
 echo ""
 echo "--------------------------------------------------"
-echo "Installing some gems"
-echo "--------------------------------------------------"
-echo ""
-./gem.sh
-
-echo ""
-echo "--------------------------------------------------"
 echo "Installing node/some npm packages"
 echo "--------------------------------------------------"
 echo ""
 ./npm.sh
-
-echo ""
-echo "--------------------------------------------------"
-echo "Installing some pip packages"
-echo "--------------------------------------------------"
-echo ""
-./pip.sh
 
 echo ""
 echo "--------------------------------------------------"
@@ -54,7 +40,7 @@ echo "--------------------------------------------------"
 echo "Copying dotfiles"
 echo "--------------------------------------------------"
 echo ""
-cp -rf dot-files/* ~/
+cp -rf dot-files/ ~/
 
 echo ""
 echo "Done, make sure to apply the colors/fonts in iterm"

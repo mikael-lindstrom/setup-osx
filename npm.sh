@@ -11,9 +11,6 @@ export NVM_DIR=~/.nvm
 
 nvm install stable
 
-#npm -g install keybase-installer
-#keybase-installer
-
 npm install -g bower
 npm install -g grunt
 npm install -g jshint

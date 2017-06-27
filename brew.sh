@@ -17,7 +17,12 @@ fi
 brew update
 
 # Upgrade any already-installed formulae.
-brew upgrade --all
+brew upgrade
+
+# Add more brew repos
+brew tap homebrew/core
+brew tap caskroom/cask
+brew tap caskroom/versions
 
 # Install GNU core utilities
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -26,6 +31,7 @@ sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
 # Install some nice commandline tools
 brew install wget --with-iri
+brew install awscli
 brew install tmux
 brew install git
 brew install zsh
@@ -36,9 +42,8 @@ brew install packer
 brew install ansible
 brew install nvm
 brew install openconnect
-brew install macpass
 brew install jid
-brew cask install transmission
+brew install vaulted
 
 # Install Python
 brew install python
@@ -48,48 +53,42 @@ brew install python3
 brew install go
 
 # Install more recent versions of some OS X tools.
-brew install vim --override-system-vi
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
-
-# Keybase
-brew install keybase
-
-# Install Cask
-brew install caskroom/cask/brew-cask
+brew install vim --with-override-system-vi
+brew install --with-default-names grep
+brew install --with-default-names openssh
+brew install --with-default-names screen
 
 # Install some developer tools
 brew cask install --appdir="~/Applications" iterm2
 brew cask install --appdir="~/Applications" java
 brew cask install --appdir="/Applications" atom
-brew cask install --appdir="/Applications" vmware-fusion
 brew cask install --appdir="/Applications" vagrant
 brew cask install --appdir="/Applications" virtualbox
 brew cask install --appdir="/Applications" gpgtools
 brew cask install --appdir="/Applications" intellij-idea
 brew cask install --appdir="/Applications" viscosity
 brew cask install --appdir="/Applications" insomnia
+brew cask install --appdir="/Applications" keybase
+brew cask install --appdir="/Applications" spectacle
+brew cask install --appdir="/Applications" authy-desktop
 
 # Misc apps
 brew cask install --appdir="/Applications" dropbox
 brew cask install --appdir="/Applications" spotify
 brew cask install --appdir="/Applications" google-chrome
+brew cask install --appdir="/Applications" google-chrome-canary
 brew cask install --appdir="/Applications" slack
-brew cask install --appdir="/Applications" slack-beta
-brew cask install --appdir="/Applications" dropbox
 brew cask install --appdir="/Applications" evernote
 brew cask install --appdir="/Applications" 1password
+brew cask install --appdir="/Applications" vivaldi
+brew cask install --appdir="/Applications" transmission
 
 brew cask install moeditor
 brew cask install google-cloud-sdk
 
 # Install Docker
-brew install docker
-brew install docker-machine
-brew install docker-compose
+brew cask install --appdir="/Applications" docker
 
-brew install Caskroom/cask/puppet
 brew install Caskroom/cask/caffeine
 
 # Cleanup
