@@ -44,6 +44,7 @@ brew install nvm
 brew install openconnect
 brew install jid
 brew install vaulted
+brew install nmap
 
 # Install Python
 brew install python
