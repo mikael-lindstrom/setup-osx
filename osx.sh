@@ -81,7 +81,10 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
 
 # Fix Fn keys to work properly
-defaults write com.apple.keyboard.fnState -boolean true
+defaults write NSGlobalDomain com.apple.keyboard.fnState -boolean true
 
 # Set trackpad behaviour to tap-click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+
+# Enable sound feedback on volume change
+defaults write NSGlobalDomain com.apple.sound.beep.feedback -int 1
