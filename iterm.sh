@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo "Updating fonts submodule"
+git submodule update --init
+
 echo "Install iterm themes"
 
 open iterm/Solarized\ Dark.itermcolors
