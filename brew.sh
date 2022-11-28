@@ -13,21 +13,17 @@ if test ! $(which brew); then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Make sure we’re using the latest Homebrew.
 brew update
 
 # Upgrade any already-installed formulae.
 brew upgrade
 
-# Add more brew repos
-#brew tap homebrew/core
-#brew tap homebrew/cask-cask
-brew tap homebrew/cask-versions
-
 # Install GNU core utilities
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
-sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+brew install grep
 
 # Install some nice commandline tools
 brew install wget
@@ -36,41 +32,54 @@ brew install tmux
 brew install git
 brew install zsh
 brew install jq
-brew install nvm
 brew install nmap
-
-# Install Python
-brew install python
+brew install direnv
+brew install aws-vault
+brew install ykman
+brew install fzf
+brew install zoxide
+brew install gh
+brew install ripgrep
+brew install bat
 
 # Install go
 brew install go
 
+# Install rustup
+brew install rustup-init
+
 # Install more recent versions of some OS X tools.
-brew install vim
-brew install grep
+brew install neovim
 brew install openssh
 brew install screen
 
+# Language servers
+brew install lua-language-server
+
 # Install some developer tools
-brew cask install iterm2
-brew cask install gpg-suite
-brew cask install viscosity
-brew cask install insomnia
-brew cask install keybase
-brew cask install spectacle
-brew cask install authy
-brew cask install visual-studio-code
-brew cask install docker
+brew install --cask iterm2
+brew install --cask keybase
+brew install --cask rectangle
+brew install --cask authy
+brew install --cask visual-studio-code
+brew install --cask docker
+brew install --cask goland
+brew install --cask session-manager-plugin
+
+# Kubernetes tools
+brew install derailed/popeye/popeye
 
 # Misc apps
-brew cask install dropbox
-brew cask install spotify
-brew cask install google-chrome
-brew cask install google-chrome-canary
-brew cask install slack
-brew cask install 1password
-brew cask install vivaldi
-brew cask install transmission
+brew install --cask dropbox
+brew install --cask spotify
+brew install --cask google-chrome
+brew install --cask slack
+brew install --cask 1password
+brew install --cask vivaldi
+brew install --cask transmission
+brew install --cask zoom
+brew install --cask homebrew/cask-drivers/elgato-control-center
+brew install --cask discord
 
 # Cleanup
 brew cleanup
