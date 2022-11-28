@@ -82,3 +82,55 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Set default editor
+export EDITOR="nvim"
+
+# agnoster theme removes user@host from prompt if user is DEFAULT_USER
+DEFAULT_USER="mikael"
+
+# Enable homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Enable direnv
+eval "$(direnv hook zsh)"
+
+# Enable fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Enable zoxide
+eval "$(zoxide init zsh)"
+
+# Use yubikey for aws-vault
+export AWS_VAULT_PROMPT=ykman
+
+# Add vault and expiry time for aws-vault to RPROMPT
+function set_vaulted_rprompt() {
+  local DIFF=$((($(date -u -j -f "%Y-%m-%dT%TZ" "$AWS_SESSION_EXPIRATION" +%s) - $(date +%s))))
+  if [[ "$DIFF" -le 0 ]]; then
+    echo "$AWS_VAULT Expired"
+  else
+    echo "$AWS_VAULT $(($DIFF/60))m$(($DIFF%60))s"
+  fi
+}
+
+if [[ $AWS_VAULT ]] && [[ $AWS_SESSION_EXPIRATION ]]; then
+  export RPROMPT='$(set_vaulted_rprompt)'
+fi
+
+# Setup GOPATH
+export GOPATH="$HOME/code"
+export PATH="$GOPATH/bin:$PATH"
+
+# Setup rust
+source "$HOME/.cargo/env"
+
+# Alias setup
+alias vim=nvim
+alias cat=bat
+
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+bindkey "^[^[[D" backward-word
+bindkey "^[^[[C" forward-word
+bindkey "^W" backward-kill-word
