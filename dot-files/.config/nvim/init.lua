@@ -1,0 +1,5 @@
+require("config.plugins")
+require("config.mason")
+require("config.set")
+require("config.colorscheme")
+require("config.mappings")
